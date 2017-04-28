@@ -1,0 +1,101 @@
+---
+# Container info
+- descriptor: "pip-services-container:container-info:default:default:*"
+  name: "pip-vault-us1-alpha"
+  description: "Client facade for Pip.Vault US1"
+
+# Console logger
+- descriptor: "pip-services-commons:logger:console:default:*"
+  level: trace
+
+# Service logger
+- descriptor: "pip-services-logging:logger:direct:default:*"
+  level: trace
+
+# Log counters
+- descriptor: "pip-services-commons:counters:log:default:*"
+
+# Service counters
+- descriptor: "pip-services-counters:counters:direct:default:*"
+  level: trace
+
+# Discovery service
+- descriptor: "pip-services-commons:discovery:memory:default:*"
+  mongodb: uri=mongodb://localhost/test
+
+# Credential store
+- descriptor: "pip-services-commons:credential-store:memory:default:*"
+  mongodb: username=;password=
+
+############## Infrastructure components ##############
+
+# Logging components
+- descriptor: "pip-services-logging:persistence:memory:default:*"
+- descriptor: "pip-services-logging:controller:default:default:*"
+- descriptor: "pip-services-logging:client:direct:default:*"
+
+# Logging counters
+- descriptor: "pip-services-counters:persistence:memory:default:*"
+- descriptor: "pip-services-counters:controller:default:default:*"
+- descriptor: "pip-services-counters:client:direct:default:*"
+
+# Event Log components
+- descriptor: "pip-services-eventlog:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-eventlog:controller:default:default:*"
+- descriptor: "pip-services-eventlog:client:direct:default:*"
+
+# Statistics components
+- descriptor: "pip-services-statistics:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-statistics:controller:default:default:*"
+- descriptor: "pip-services-statistics:client:direct:default:*"
+
+# Registry components
+- descriptor: "pip-services-registry:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-registry:controller:default:default:*"
+- descriptor: "pip-services-registry:client:direct:default:*"
+
+# Facets components
+- descriptor: "pip-services-facets:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-facets:controller:default:default:*"
+- descriptor: "pip-services-facets:client:direct:default:*"
+
+# Blobs components
+- descriptor: "pip-services-blobs:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-blobs:controller:default:default:*"
+- descriptor: "pip-services-blobs:client:direct:default:*"
+
+################ REST API Routes ##############
+
+# Main facade service
+- descriptor: "pip-services-facade:service:main:default:*"
+  root_path: ""
+  connection:
+    protocol: "http"
+    host: "0.0.0.0"
+    port: 8080
+  options:
+    debug: true
+    maintenance_enabled: false
+    max_req_size: "1mb"
+
+# Version 1 facade service
+- descriptor: "pip-services-facade:service:test:api-1.0:*"
+  root_path: "/api/1.0"
+
+# Pip.Services Operations
+- descriptor: "pip-facade-infrastructure:operations:logging:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:counters:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:eventlog:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:registry:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:statistics:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:blobs:default:1.0"

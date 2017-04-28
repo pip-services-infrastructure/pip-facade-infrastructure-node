@@ -1,0 +1,69 @@
+{
+    "name": "pip-facade-infrastructure-node",
+    "version": "1.0.0",
+    "author": "Conceptual Vision Consulting LLC",
+    "description": "Facade operations for infrastructure Pip.Services in Node.js",
+    "contributors": [
+        {
+            "name": "Sergey Seroukhov",
+            "email": "seroukhov@gmail.com"
+        }
+    ],
+    "main": "./obj/src/index.js",
+    "typings": "./obj/src/index.d.ts",
+    "keywords": [
+        "pip.services", 
+        "infrastructure",
+        "rest api",
+        "client facade"
+    ],
+    "noAnalyze": true,
+    "repository" : {
+        "type": "git",
+        "url": "ssh://git@github.com:pip-services-infrastructure/pip-facade-infrastructure-node.git"
+    },
+    "license": "Commercial",
+    "engines": {
+        "node": ">=0.6.14"
+    },
+    "private": true,
+    "scripts": {
+        "start": "node app",
+        "test": "mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
+        "benchmark": "matcha -R clean -I tdd ./benchmark/run.js"
+    },
+    "dependencies": {
+        "pip-services-commons-node": "^2.0.0",
+        "pip-services-container-node": "^2.0.0",
+        "pip-services-net-node": "^2.0.0",
+        "pip-services-facade-node": "^1.1.0",
+        "busboy": "*",
+
+        "pip-clients-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-logging-node.git",
+        "pip-clients-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-counters-node.git",
+        "pip-clients-registry-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-registry-node.git",
+        "pip-clients-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-statistics-node.git",
+        "pip-clients-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-eventlog-node.git",
+        "pip-clients-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-facets-node.git",
+        "pip-clients-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-blobs-node.git"
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "@types/lodash": "^4.0.0",
+        "@types/async": "^2.0.0",
+        "@types/mocha": "*",
+        "@types/chai": "*",
+        "mocha": "*",
+        "chai": "*",
+        "matcha": "*",
+        "restify": "4.3.0",
+
+        "pip-services-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-logging-node.git",
+        "pip-services-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-counters-node.git",
+        "pip-services-registry-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-registry-node.git",
+        "pip-services-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-statistics-node.git",
+        "pip-services-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-eventlog-node.git",
+        "pip-services-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-facets-node.git",
+        "pip-services-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-blobs-node.git"
+    }
+}
