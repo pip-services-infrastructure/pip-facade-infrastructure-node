@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
 const pip_services_commons_node_1 = require("pip-services-commons-node");
+const pip_services_commons_node_2 = require("pip-services-commons-node");
 const pip_services_facade_node_1 = require("pip-services-facade-node");
 class CountersOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     constructor() {
@@ -16,6 +17,11 @@ class CountersOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     getCountersOperation() {
         return (req, res) => {
             this.getCounters(req, res);
+        };
+    }
+    getCountersAsTextOperation() {
+        return (req, res) => {
+            this.getCountersAsText(req, res);
         };
     }
     writeCounterOperation() {
@@ -32,6 +38,45 @@ class CountersOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         let filter = this.getFilterParams(req);
         let paging = this.getPagingParams(req);
         this._countersClient.readCounters(null, filter, paging, this.sendResult(req, res));
+    }
+    counterToText(counter) {
+        var output = "Counter " + counter.name + " { ";
+        output += "\"type\": " + counter.type;
+        if (counter.last != null)
+            output += ", \"last\": " + pip_services_commons_node_2.StringConverter.toString(counter.last);
+        if (counter.count != null)
+            output += ", \"count\": " + pip_services_commons_node_2.StringConverter.toString(counter.count);
+        if (counter.min != null)
+            output += ", \"min\": " + pip_services_commons_node_2.StringConverter.toString(counter.min);
+        if (counter.max != null)
+            output += ", \"max\": " + pip_services_commons_node_2.StringConverter.toString(counter.max);
+        if (counter.average != null)
+            output += ", \"avg\": " + pip_services_commons_node_2.StringConverter.toString(counter.average);
+        if (counter.time != null)
+            output += ", \"time\": " + pip_services_commons_node_2.StringConverter.toString(counter.time);
+        output += " }";
+        return output;
+    }
+    countersToText(counters) {
+        if (counters == null)
+            return null;
+        let output = "";
+        _.each(counters, (m) => {
+            if (output.length > 0)
+                output += "\r\n";
+            output += this.counterToText(m);
+        });
+        return output;
+    }
+    getCountersAsText(req, res) {
+        let filter = this.getFilterParams(req);
+        let paging = this.getPagingParams(req);
+        this._countersClient.readCounters(null, filter, paging, (err, page) => {
+            if (err != null)
+                this.sendError(req, res, err);
+            else
+                res.send(this.countersToText(page.data));
+        });
     }
     writeCounter(req, res) {
         let counter = req.body;

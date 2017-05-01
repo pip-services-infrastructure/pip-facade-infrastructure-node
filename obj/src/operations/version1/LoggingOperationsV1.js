@@ -82,7 +82,7 @@ class LoggingOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         let output = "";
         _.each(messages, (m) => {
             if (output.length > 0)
-                output += "\n";
+                output += "\r\n";
             output += this.messageToText(m);
         });
         return output;

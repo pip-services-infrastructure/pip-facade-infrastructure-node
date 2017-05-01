@@ -111,7 +111,7 @@ export class LoggingOperationsV1  extends FacadeOperations {
 
         let output = "";
         _.each(messages, (m) => {
-            if (output.length > 0) output += "\n";
+            if (output.length > 0) output += "\r\n";
             output += this.messageToText(m);
         });
         return output;

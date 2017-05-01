@@ -36,6 +36,7 @@ export class TestFacadeService extends PartitionFacadeService {
         let counters = this._dependencyResolver.getOneOptional<CountersOperationsV1>('counters');
         if (counters) {
             this.registerRoute('get', '/counters', counters.getCountersOperation());
+            this.registerRoute('get', '/counters/text', counters.getCountersAsTextOperation());
             this.registerRoute('post', '/counters', counters.writeCounterOperation());
             this.registerRoute('del', '/counters', counters.clearCountersOperation());
         }
