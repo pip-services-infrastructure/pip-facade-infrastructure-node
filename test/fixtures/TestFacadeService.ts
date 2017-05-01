@@ -27,6 +27,8 @@ export class TestFacadeService extends PartitionFacadeService {
         if (logging) {
             this.registerRoute('get', '/logging', logging.getMessagesOperation());
             this.registerRoute('get', '/logging/errors', logging.getErrorsOperation());
+            this.registerRoute('get', '/logging/text', logging.getMessagesAsTextOperation());
+            this.registerRoute('get', '/logging/errors/text', logging.getErrorsAsTextOperation());
             this.registerRoute('post', '/logging', logging.writeMessageOperation());
             this.registerRoute('del', '/logging', logging.clearMessagesOperation());
         }
