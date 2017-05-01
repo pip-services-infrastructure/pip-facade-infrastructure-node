@@ -75,8 +75,8 @@ export class StatisticsOperationsV1  extends FacadeOperations {
     }
 
     private readCounter(req: any, res: any): void {
-        let name = req.route.params.name;
-        let group = req.route.params.group;
+        let name = req.param('name');
+        let group = req.param('group');
         let type = IntegerConverter.toInteger(req.param('type'));
         let fromTime = DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = DateTimeConverter.toNullableDateTime(req.param('to_time'));

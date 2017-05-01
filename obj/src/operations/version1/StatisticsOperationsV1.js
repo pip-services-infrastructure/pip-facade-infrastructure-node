@@ -50,8 +50,8 @@ class StatisticsOperationsV1 extends pip_services_facade_node_1.FacadeOperations
         this._statisticsClient.getCounters(null, filter, paging, this.sendResult(req, res));
     }
     readCounter(req, res) {
-        let name = req.route.params.name;
-        let group = req.route.params.group;
+        let name = req.param('name');
+        let group = req.param('group');
         let type = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('type'));
         let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
