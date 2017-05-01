@@ -74,6 +74,7 @@ export class TestFacadeService extends PartitionFacadeService {
             this.registerRoute('get', '/blobs/:blob_id/info', blobs.getBlobInfoOperation());
             this.registerRoute('get', '/blobs/:blob_id', blobs.getBlobOperation());
             this.registerRoute('post', '/blobs', blobs.setBlobOperation());
+            this.registerRoute('put', '/blobs/:blob_id/info', blobs.updateBlobInfoOperation());
             this.registerRoute('put', '/blobs/:blob_id', blobs.setBlobOperation());
             this.registerRoute('del', '/blobs/:blob_id', blobs.deleteBlobOperation());
 

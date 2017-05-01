@@ -37,6 +37,11 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
             this.setBlob(req, res);
         };
     }
+    updateBlobInfoOperation() {
+        return (req, res) => {
+            this.updateBlobInfo(req, res);
+        };
+    }
     deleteBlobOperation() {
         return (req, res) => {
             this.deleteBlob(req, res);
@@ -48,11 +53,11 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         this._blobsClient.getBlobsByFilter(null, filter, paging, this.sendResult(req, res));
     }
     getBlobInfo(req, res) {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         this._blobsClient.getBlobById(null, blobId, this.sendResult(req, res));
     }
     getBlob(req, res) {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         let blob;
         let uri = null;
         async.series([
@@ -95,7 +100,7 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         });
     }
     setBlob(req, res) {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
         let expireTime = pip_services_commons_node_4.DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = pip_services_commons_node_3.BooleanConverter.toBoolean(req.param('completed'));
@@ -124,8 +129,14 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         });
         req.pipe(form);
     }
+    updateBlobInfo(req, res) {
+        let blobId = req.param("id") || req.param("blob_id");
+        let blob = req.body || {};
+        blob.id = blobId;
+        this._blobsClient.updateBlobInfo(null, blob, this.sendResult(req, res));
+    }
     deleteBlob(req, res) {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         this._blobsClient.deleteBlobById(null, blobId, this.sendResult(req, res));
     }
 }

@@ -54,6 +54,12 @@ export class BlobsOperationsV1  extends FacadeOperations {
         }
     }
 
+    public updateBlobInfoOperation() {
+        return (req, res) => {
+            this.updateBlobInfo(req, res);
+        }
+    }
+
     public deleteBlobOperation() {
         return (req, res) => {
             this.deleteBlob(req, res);
@@ -70,7 +76,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
     }
 
     private getBlobInfo(req: any, res: any): void {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
 
         this._blobsClient.getBlobById(
             null, blobId, this.sendResult(req, res)
@@ -78,7 +84,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
     }
 
     private getBlob(req: any, res: any): void {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         let blob: BlobInfoV1;
         let uri: string = null;
 
@@ -125,7 +131,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
     }
 
     private setBlob(req: any, res: any): void {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
         let expireTime = DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = BooleanConverter.toBoolean(req.param('completed'));
@@ -155,8 +161,18 @@ export class BlobsOperationsV1  extends FacadeOperations {
         req.pipe(form);
     }
 
+    private updateBlobInfo(req: any, res: any): void {
+        let blobId = req.param("id") || req.param("blob_id");
+        let blob = req.body || {};
+        blob.id = blobId;
+
+        this._blobsClient.updateBlobInfo(
+            null, blob, this.sendResult(req, res)
+        );
+    }
+
     private deleteBlob(req: any, res: any): void {
-        let blobId = req.route.params.blob_id;
+        let blobId = req.param("id") || req.param("blob_id");
 
         this._blobsClient.deleteBlobById(
             null, blobId, this.sendResult(req, res)
