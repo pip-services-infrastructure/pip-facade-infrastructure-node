@@ -49,8 +49,12 @@ export class TestFacadeService extends PartitionFacadeService {
             this.registerRoute('get', '/registry', registry.getSectionsOperation());
             this.registerRoute('get', '/registry/ids', registry.getSectionIdsOperation());
             this.registerRoute('get', '/registry/:id', registry.getSectionOperation());
+            this.registerRoute('get', '/registry/:id/:key', registry.getParameterOperation());
             this.registerRoute('post', '/registry/:id', registry.setSectionOperation());
+            this.registerRoute('post', '/registry/:id/:key', registry.setParameterOperation());
+            this.registerRoute('post', '/registry/:id/:key/increment', registry.incrementParameterOperation());
             this.registerRoute('put', '/registry/:id', registry.modifySectionOperation());
+            this.registerRoute('del', '/registry/:id', registry.clearSectionOperation());
         }
 
         let statistics = this._dependencyResolver.getOneOptional<StatisticsOperationsV1>('statistics');

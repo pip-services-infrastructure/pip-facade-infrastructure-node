@@ -5,6 +5,7 @@ import { ConfigParams } from 'pip-services-commons-node';
 import { IReferences } from 'pip-services-commons-node';
 import { Descriptor } from 'pip-services-commons-node'; 
 import { DependencyResolver } from 'pip-services-commons-node';
+import { LongConverter } from 'pip-services-commons-node';
 
 import { IRegistryClientV1 } from 'pip-clients-registry-node';
 
@@ -49,9 +50,33 @@ export class RegistryOperationsV1  extends FacadeOperations {
         }
     }
 
+    public getParameterOperation() {
+        return (req, res) => {
+            this.getParameter(req, res);
+        }
+    }
+
+    public setParameterOperation() {
+        return (req, res) => {
+            this.setParameter(req, res);
+        }
+    }
+
+    public incrementParameterOperation() {
+        return (req, res) => {
+            this.incrementParameter(req, res);
+        }
+    }
+
     public modifySectionOperation() {
         return (req, res) => {
             this.modifySection(req, res);
+        }
+    }
+
+    public clearSectionOperation() {
+        return (req, res) => {
+            this.clearSection(req, res);
         }
     }
 
@@ -74,7 +99,7 @@ export class RegistryOperationsV1  extends FacadeOperations {
     }
 
     private getSection(req: any, res: any): void {
-        let id = req.route.params.id;
+        let id = req.param('id') || req.param('section');
 
         this._registryClient.getSectionById(
             null, id, this.sendResult(req, res)
@@ -82,7 +107,7 @@ export class RegistryOperationsV1  extends FacadeOperations {
     }
 
     private setSection(req: any, res: any): void {
-        let id = req.route.params.id;
+        let id = req.param('id') || req.param('section');
         let parameters = ConfigParams.fromValue(req.body);
 
         this._registryClient.setSection(
@@ -90,14 +115,66 @@ export class RegistryOperationsV1  extends FacadeOperations {
         );
     }
 
+    private getParameter(req: any, res: any): void {
+        let id = req.param('id') || req.param('section');
+        let key = req.param('key') || req.param('param');
+
+        this._registryClient.getSectionById(
+            null, id, (err, parameters) => {
+                let value = parameters ? parameters.get(key) : null;
+                this.sendResult(req, res)(err, value);
+            }
+        );
+    }
+
+    private setParameter(req: any, res: any): void {
+        let id = req.param('id') || req.param('section');
+        let key = req.param('key') || req.param('param');
+        let value = req.param('value');
+        let updateParams = ConfigParams.fromTuples(
+            key, value
+        );
+
+        this._registryClient.modifySection(
+            null, id, updateParams, null, (err, parameters) => {
+                let value = parameters ? parameters.get(key) : null;
+                this.sendResult(req, res)(err, value);
+            }
+        );
+    }
+
+    private incrementParameter(req: any, res: any): void {
+        let id = req.param('id') || req.param('section');
+        let key = req.param('key') || req.param('param');
+        let value = LongConverter.toLong(req.param('value') || req.param('count'));
+        let incrementParams = ConfigParams.fromTuples(
+            key, value
+        );
+
+        this._registryClient.modifySection(
+            null, id, null, incrementParams, (err, parameters) => {
+                let value = parameters ? parameters.get(key) : null;
+                this.sendResult(req, res)(err, value);
+            }
+        );
+    }
+
     private modifySection(req: any, res: any): void {
-        let id = req.route.params.id;
-        let params = req.body;
+        let id = req.param('id') || req.param('section');
+        let params = req.body || {};
         let updateParams = ConfigParams.fromValue(params.update_params);
         let incrementParams = ConfigParams.fromValue(params.increment_params);
 
         this._registryClient.modifySection(
             null, id, updateParams, incrementParams, this.sendResult(req, res)
+        );
+    }
+
+    private clearSection(req: any, res: any): void {
+        let id = req.param('id') || req.param('section');
+
+        this._registryClient.setSection(
+            null, id, new ConfigParams(), this.sendEmptyResult(req, res)
         );
     }
 
