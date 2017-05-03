@@ -91,6 +91,19 @@ suite('StatisticsOperationsV1', () => {
                         callback();
                     }
                 );
+            },
+            (callback) => {
+                rest.get(
+                    '/api/1.0/statistics/123?type=0',
+                    (err, req, res, sets) => {
+                        assert.isNull(err);
+
+                        assert.isArray(sets);
+                        assert.lengthOf(sets, 1);
+
+                        callback();
+                    }
+                );
             }
         ], done)
     });

@@ -65,6 +65,7 @@ export class TestFacadeService extends PartitionFacadeService {
             this.registerRoute('get', '/statistics/groups', statistics.getGroupsOperation());
             this.registerRoute('get', '/statistics/counters', statistics.getCountersOperation());
             this.registerRoute('post', '/statistics', statistics.readCountersOperation());
+            this.registerRoute('get', '/statistics/:group', statistics.readCountersByGroupOperation());
             this.registerRoute('get', '/statistics/:group/:name', statistics.readCounterOperation());
             this.registerRoute('post', '/statistics/:group/:name', statistics.incrementCounterOperation());
         }

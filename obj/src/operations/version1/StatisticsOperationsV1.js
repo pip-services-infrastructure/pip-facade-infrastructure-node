@@ -30,6 +30,11 @@ class StatisticsOperationsV1 extends pip_services_facade_node_1.FacadeOperations
             this.readCounter(req, res);
         };
     }
+    readCountersByGroupOperation() {
+        return (req, res) => {
+            this.readCountersByGroup(req, res);
+        };
+    }
     readCountersOperation() {
         return (req, res) => {
             this.readCounters(req, res);
@@ -56,6 +61,13 @@ class StatisticsOperationsV1 extends pip_services_facade_node_1.FacadeOperations
         let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
         this._statisticsClient.readOneCounter(null, group, name, type, fromTime, toTime, this.sendResult(req, res));
+    }
+    readCountersByGroup(req, res) {
+        let group = req.param('group');
+        let type = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('type'));
+        let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
+        let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
+        this._statisticsClient.readCountersByGroup(null, group, type, fromTime, toTime, this.sendResult(req, res));
     }
     readCounters(req, res) {
         let counters = req.body;

@@ -45,6 +45,12 @@ export class StatisticsOperationsV1  extends FacadeOperations {
         }
     }
 
+    public readCountersByGroupOperation() {
+        return (req, res) => {
+            this.readCountersByGroup(req, res);
+        }
+    }
+
     public readCountersOperation() {
         return (req, res) => {
             this.readCounters(req, res);
@@ -83,6 +89,17 @@ export class StatisticsOperationsV1  extends FacadeOperations {
 
         this._statisticsClient.readOneCounter(
             null, group, name, type, fromTime, toTime, this.sendResult(req, res)
+        );
+    }
+
+    private readCountersByGroup(req: any, res: any): void {
+        let group = req.param('group');
+        let type = IntegerConverter.toInteger(req.param('type'));
+        let fromTime = DateTimeConverter.toNullableDateTime(req.param('from_time'));
+        let toTime = DateTimeConverter.toNullableDateTime(req.param('to_time'));
+
+        this._statisticsClient.readCountersByGroup(
+            null, group, type, fromTime, toTime, this.sendResult(req, res)
         );
     }
 
