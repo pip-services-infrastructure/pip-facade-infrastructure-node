@@ -5,7 +5,7 @@ export declare class InfrastructureFacadeFactory extends Factory {
     static LoggingOperationsV1Descriptor: Descriptor;
     static CountersOperationsV1Descriptor: Descriptor;
     static EventLogOperationsV1Descriptor: Descriptor;
-    static RegistryOperationsV1Descriptor: Descriptor;
+    static SettingsOperationsV1Descriptor: Descriptor;
     static StatisticsOperationsV1Descriptor: Descriptor;
     static BlobsOperationsV1Descriptor: Descriptor;
     constructor();

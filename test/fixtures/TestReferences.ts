@@ -47,9 +47,9 @@ export class TestReferences extends ManagedReferences {
         this.append(new Descriptor('pip-services-statistics', 'persistence', 'memory', 'default', '*'));
         this.append(new Descriptor('pip-services-statistics', 'controller', 'default', 'default', '*'));
         this.append(new Descriptor('pip-services-statistics', 'client', 'direct', 'default', '*'));
-        this.append(new Descriptor('pip-services-registry', 'persistence', 'memory', 'default', '*'));
-        this.append(new Descriptor('pip-services-registry', 'controller', 'default', 'default', '*'));
-        this.append(new Descriptor('pip-services-registry', 'client', 'direct', 'default', '*'));
+        this.append(new Descriptor('pip-services-settings', 'persistence', 'memory', 'default', '*'));
+        this.append(new Descriptor('pip-services-settings', 'controller', 'default', 'default', '*'));
+        this.append(new Descriptor('pip-services-settings', 'client', 'direct', 'default', '*'));
         this.append(new Descriptor('pip-services-blobs', 'persistence', 'memory', 'default', '*'));
         this.append(new Descriptor('pip-services-blobs', 'controller', 'default', 'default', '*'));
         this.append(new Descriptor('pip-services-blobs', 'client', 'direct', 'default', '*'));

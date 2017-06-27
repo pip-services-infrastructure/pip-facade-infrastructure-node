@@ -53,12 +53,12 @@
 - descriptor: "pip-services-statistics:controller:default:default:*"
 - descriptor: "pip-services-statistics:client:direct:default:*"
 
-# Registry components
-- descriptor: "pip-services-registry:persistence:mongodb:default:*"
+# Settings components
+- descriptor: "pip-services-settings:persistence:mongodb:default:*"
   connection:
     discovery_key: mongodb
-- descriptor: "pip-services-registry:controller:default:default:*"
-- descriptor: "pip-services-registry:client:direct:default:*"
+- descriptor: "pip-services-settings:controller:default:default:*"
+- descriptor: "pip-services-settings:client:direct:default:*"
 
 # Facets components
 - descriptor: "pip-services-facets:persistence:mongodb:default:*"
@@ -96,6 +96,6 @@
 - descriptor: "pip-facade-infrastructure:operations:logging:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:counters:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:eventlog:default:1.0"
-- descriptor: "pip-facade-infrastructure:operations:registry:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:settings:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:statistics:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:blobs:default:1.0"

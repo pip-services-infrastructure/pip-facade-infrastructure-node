@@ -5,7 +5,7 @@ import { AboutOperations } from 'pip-services-facade-node';
 import { LoggingOperationsV1 } from '../../src/operations/version1/LoggingOperationsV1';
 import { CountersOperationsV1 } from '../../src/operations/version1/CountersOperationsV1';
 import { EventLogOperationsV1 } from '../../src/operations/version1/EventLogOperationsV1';
-import { RegistryOperationsV1 } from '../../src/operations/version1/RegistryOperationsV1';
+import { SettingsOperationsV1 } from '../../src/operations/version1/SettingsOperationsV1';
 import { StatisticsOperationsV1 } from '../../src/operations/version1/StatisticsOperationsV1';
 import { BlobsOperationsV1 } from '../../src/operations/version1/BlobsOperationsV1';
 
@@ -17,7 +17,7 @@ export class TestFacadeService extends PartitionFacadeService {
         this._dependencyResolver.put('logging', new Descriptor("pip-facade-infrastructure", "operations", "logging", "*", "1.0"));
         this._dependencyResolver.put('counters', new Descriptor("pip-facade-infrastructure", "operations", "counters", "*", "1.0"));
         this._dependencyResolver.put('eventlog', new Descriptor("pip-facade-infrastructure", "operations", "eventlog", "*", "1.0"));
-        this._dependencyResolver.put('registry', new Descriptor("pip-facade-infrastructure", "operations", "registry", "*", "1.0"));
+        this._dependencyResolver.put('settings', new Descriptor("pip-facade-infrastructure", "operations", "settings", "*", "1.0"));
         this._dependencyResolver.put('statistics', new Descriptor("pip-facade-infrastructure", "operations", "statistics", "*", "1.0"));
         this._dependencyResolver.put('blobs', new Descriptor("pip-facade-infrastructure", "operations", "blobs", "*", "1.0"));
     }
@@ -47,17 +47,17 @@ export class TestFacadeService extends PartitionFacadeService {
             this.registerRoute('post', '/eventlog', eventlog.logEventOperation());
         }
 
-        let registry = this._dependencyResolver.getOneOptional<RegistryOperationsV1>('registry');
-        if (registry) {
-            this.registerRoute('get', '/registry', registry.getSectionsOperation());
-            this.registerRoute('get', '/registry/ids', registry.getSectionIdsOperation());
-            this.registerRoute('get', '/registry/:id', registry.getSectionOperation());
-            this.registerRoute('get', '/registry/:id/:key', registry.getParameterOperation());
-            this.registerRoute('post', '/registry/:id', registry.setSectionOperation());
-            this.registerRoute('post', '/registry/:id/:key', registry.setParameterOperation());
-            this.registerRoute('post', '/registry/:id/:key/increment', registry.incrementParameterOperation());
-            this.registerRoute('put', '/registry/:id', registry.modifySectionOperation());
-            this.registerRoute('del', '/registry/:id', registry.clearSectionOperation());
+        let settings = this._dependencyResolver.getOneOptional<SettingsOperationsV1>('settings');
+        if (settings) {
+            this.registerRoute('get', '/settings', settings.getSectionsOperation());
+            this.registerRoute('get', '/settings/ids', settings.getSectionIdsOperation());
+            this.registerRoute('get', '/settings/:id', settings.getSectionOperation());
+            this.registerRoute('get', '/settings/:id/:key', settings.getParameterOperation());
+            this.registerRoute('post', '/settings/:id', settings.setSectionOperation());
+            this.registerRoute('post', '/settings/:id/:key', settings.setParameterOperation());
+            this.registerRoute('post', '/settings/:id/:key/increment', settings.incrementParameterOperation());
+            this.registerRoute('put', '/settings/:id', settings.modifySectionOperation());
+            this.registerRoute('del', '/settings/:id', settings.clearSectionOperation());
         }
 
         let statistics = this._dependencyResolver.getOneOptional<StatisticsOperationsV1>('statistics');

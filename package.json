@@ -41,7 +41,7 @@
 
         "pip-clients-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-logging-node.git",
         "pip-clients-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-counters-node.git",
-        "pip-clients-registry-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-registry-node.git",
+        "pip-clients-settings-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-settings-node.git",
         "pip-clients-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-statistics-node.git",
         "pip-clients-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-eventlog-node.git",
         "pip-clients-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-facets-node.git",
@@ -60,7 +60,7 @@
 
         "pip-services-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-logging-node.git",
         "pip-services-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-counters-node.git",
-        "pip-services-registry-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-registry-node.git",
+        "pip-services-settings-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-settings-node.git",
         "pip-services-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-statistics-node.git",
         "pip-services-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-eventlog-node.git",
         "pip-services-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-facets-node.git",
