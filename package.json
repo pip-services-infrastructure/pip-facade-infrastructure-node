@@ -12,13 +12,13 @@
     "main": "./obj/src/index.js",
     "typings": "./obj/src/index.d.ts",
     "keywords": [
-        "pip.services", 
+        "pip.services",
         "infrastructure",
         "rest api",
         "client facade"
     ],
     "noAnalyze": true,
-    "repository" : {
+    "repository": {
         "type": "git",
         "url": "ssh://git@github.com:pip-services-infrastructure/pip-facade-infrastructure-node.git"
     },
@@ -38,7 +38,6 @@
         "pip-services-net-node": "^2.0.0",
         "pip-services-facade-node": "^1.1.0",
         "busboy": "*",
-
         "pip-clients-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-logging-node.git",
         "pip-clients-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-counters-node.git",
         "pip-clients-settings-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-settings-node.git",
@@ -57,7 +56,6 @@
         "chai": "*",
         "matcha": "*",
         "restify": "4.3.0",
-
         "pip-services-logging-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-logging-node.git",
         "pip-services-counters-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-counters-node.git",
         "pip-services-settings-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-settings-node.git",

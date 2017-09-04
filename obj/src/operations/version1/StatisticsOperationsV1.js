@@ -79,8 +79,9 @@ class StatisticsOperationsV1 extends pip_services_facade_node_1.FacadeOperations
     incrementCounter(req, res) {
         let group = req.param('group');
         let name = req.param('name');
+        let time = req.param('time');
         let value = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('value'));
-        this._statisticsClient.incrementCounter(null, group, name, value, this.sendEmptyResult(req, res));
+        this._statisticsClient.incrementCounter(null, group, name, time, value, this.sendEmptyResult(req, res));
     }
 }
 exports.StatisticsOperationsV1 = StatisticsOperationsV1;

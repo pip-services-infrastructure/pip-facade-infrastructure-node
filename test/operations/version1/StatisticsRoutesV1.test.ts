@@ -75,7 +75,7 @@ suite('StatisticsOperationsV1', () => {
         async.series([
             (callback) => {
                 statisticsClient.incrementCounter(
-                    null, '123', 'test', 1, callback
+                    null, '123', 'test', new Date(), 1, callback
                 );
             },
             (callback) => {

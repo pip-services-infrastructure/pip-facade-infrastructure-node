@@ -117,10 +117,11 @@ export class StatisticsOperationsV1  extends FacadeOperations {
     private incrementCounter(req: any, res: any): void {
         let group = req.param('group');
         let name = req.param('name');
+        let time = req.param('time');
         let value = IntegerConverter.toInteger(req.param('value'));
 
         this._statisticsClient.incrementCounter(
-            null, group, name, value, this.sendEmptyResult(req, res)
+            null, group, name, time, value, this.sendEmptyResult(req, res)
         );
     }
 
