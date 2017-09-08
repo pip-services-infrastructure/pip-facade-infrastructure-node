@@ -60,28 +60,32 @@ class StatisticsOperationsV1 extends pip_services_facade_node_1.FacadeOperations
         let type = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('type'));
         let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
-        this._statisticsClient.readOneCounter(null, group, name, type, fromTime, toTime, this.sendResult(req, res));
+        let timezone = req.param('timezone');
+        this._statisticsClient.readOneCounter(null, group, name, type, fromTime, toTime, timezone, this.sendResult(req, res));
     }
     readCountersByGroup(req, res) {
         let group = req.param('group');
         let type = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('type'));
         let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
-        this._statisticsClient.readCountersByGroup(null, group, type, fromTime, toTime, this.sendResult(req, res));
+        let timezone = req.param('timezone');
+        this._statisticsClient.readCountersByGroup(null, group, type, fromTime, toTime, timezone, this.sendResult(req, res));
     }
     readCounters(req, res) {
         let counters = req.body;
         let type = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('type'));
         let fromTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = pip_services_commons_node_3.DateTimeConverter.toNullableDateTime(req.param('to_time'));
-        this._statisticsClient.readCounters(null, counters, type, fromTime, toTime, this.sendResult(req, res));
+        let timezone = req.param('timezone');
+        this._statisticsClient.readCounters(null, counters, type, fromTime, toTime, timezone, this.sendResult(req, res));
     }
     incrementCounter(req, res) {
         let group = req.param('group');
         let name = req.param('name');
         let time = req.param('time');
+        let timezone = req.param('timezone');
         let value = pip_services_commons_node_2.IntegerConverter.toInteger(req.param('value'));
-        this._statisticsClient.incrementCounter(null, group, name, time, value, this.sendEmptyResult(req, res));
+        this._statisticsClient.incrementCounter(null, group, name, time, timezone, value, this.sendEmptyResult(req, res));
     }
 }
 exports.StatisticsOperationsV1 = StatisticsOperationsV1;

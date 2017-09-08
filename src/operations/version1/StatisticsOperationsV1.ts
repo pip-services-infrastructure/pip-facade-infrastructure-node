@@ -86,9 +86,10 @@ export class StatisticsOperationsV1  extends FacadeOperations {
         let type = IntegerConverter.toInteger(req.param('type'));
         let fromTime = DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = DateTimeConverter.toNullableDateTime(req.param('to_time'));
-
+        let timezone = req.param('timezone');
+        
         this._statisticsClient.readOneCounter(
-            null, group, name, type, fromTime, toTime, this.sendResult(req, res)
+            null, group, name, type, fromTime, toTime, timezone, this.sendResult(req, res)
         );
     }
 
@@ -97,9 +98,10 @@ export class StatisticsOperationsV1  extends FacadeOperations {
         let type = IntegerConverter.toInteger(req.param('type'));
         let fromTime = DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = DateTimeConverter.toNullableDateTime(req.param('to_time'));
-
+        let timezone = req.param('timezone');
+        
         this._statisticsClient.readCountersByGroup(
-            null, group, type, fromTime, toTime, this.sendResult(req, res)
+            null, group, type, fromTime, toTime, timezone, this.sendResult(req, res)
         );
     }
 
@@ -108,9 +110,10 @@ export class StatisticsOperationsV1  extends FacadeOperations {
         let type = IntegerConverter.toInteger(req.param('type'));
         let fromTime = DateTimeConverter.toNullableDateTime(req.param('from_time'));
         let toTime = DateTimeConverter.toNullableDateTime(req.param('to_time'));
-
+        let timezone = req.param('timezone');
+        
         this._statisticsClient.readCounters(
-            null, counters, type, fromTime, toTime, this.sendResult(req, res)
+            null, counters, type, fromTime, toTime, timezone, this.sendResult(req, res)
         );
     }
 
@@ -118,10 +121,11 @@ export class StatisticsOperationsV1  extends FacadeOperations {
         let group = req.param('group');
         let name = req.param('name');
         let time = req.param('time');
+        let timezone = req.param('timezone');
         let value = IntegerConverter.toInteger(req.param('value'));
 
         this._statisticsClient.incrementCounter(
-            null, group, name, time, value, this.sendEmptyResult(req, res)
+            null, group, name, time, timezone, value, this.sendEmptyResult(req, res)
         );
     }
 
