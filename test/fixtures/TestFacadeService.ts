@@ -96,7 +96,7 @@ export class TestFacadeService extends PartitionFacadeService {
 
         let sms = this._dependencyResolver.getOneOptional<SmsOperationsV1>('sms');
         if (sms) {
-            this.registerRoute('post', '/sms', email.sendMessageOperation());
+            this.registerRoute('post', '/sms', sms.sendMessageOperation());
         }
     }
 
