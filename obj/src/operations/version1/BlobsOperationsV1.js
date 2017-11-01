@@ -137,7 +137,7 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     }
     deleteBlob(req, res) {
         let blobId = req.param("id") || req.param("blob_id");
-        this._blobsClient.deleteBlobById(null, blobId, this.sendResult(req, res));
+        this._blobsClient.deleteBlobById(null, blobId, this.sendEmptyResult(req, res));
     }
 }
 exports.BlobsOperationsV1 = BlobsOperationsV1;

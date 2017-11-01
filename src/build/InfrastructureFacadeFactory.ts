@@ -7,6 +7,8 @@ import { EventLogOperationsV1 } from '../operations/version1/EventLogOperationsV
 import { SettingsOperationsV1 } from '../operations/version1/SettingsOperationsV1';
 import { StatisticsOperationsV1 } from '../operations/version1/StatisticsOperationsV1';
 import { BlobsOperationsV1 } from '../operations/version1/BlobsOperationsV1';
+import { EmailOperationsV1 } from '../operations/version1/EmailOperationsV1';
+import { SmsOperationsV1 } from '../operations/version1/SmsOperationsV1';
 
 export class InfrastructureFacadeFactory extends Factory {
 	public static Descriptor = new Descriptor("pip-facade-infrastructure", "factory", "default", "default", "1.0");
@@ -17,6 +19,8 @@ export class InfrastructureFacadeFactory extends Factory {
 	public static SettingsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "settings", "*", "1.0");
 	public static StatisticsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "statistics", "*", "1.0");
 	public static BlobsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "blobs", "*", "1.0");
+	public static EmailOperationsV1Descriptor = new Descriptor("pip-facade-users", "operations", "email", "*", "1.0");
+	public static SmsOperationsV1Descriptor = new Descriptor("pip-facade-users", "operations", "sms", "*", "1.0");
 	
 	public constructor() {
 		super();
@@ -27,6 +31,8 @@ export class InfrastructureFacadeFactory extends Factory {
 		this.registerAsType(InfrastructureFacadeFactory.SettingsOperationsV1Descriptor, SettingsOperationsV1);
 		this.registerAsType(InfrastructureFacadeFactory.StatisticsOperationsV1Descriptor, StatisticsOperationsV1);
 		this.registerAsType(InfrastructureFacadeFactory.BlobsOperationsV1Descriptor, BlobsOperationsV1);
+		this.registerAsType(InfrastructureFacadeFactory.EmailOperationsV1Descriptor, EmailOperationsV1);
+		this.registerAsType(InfrastructureFacadeFactory.SmsOperationsV1Descriptor, SmsOperationsV1);
 	}
 	
 }

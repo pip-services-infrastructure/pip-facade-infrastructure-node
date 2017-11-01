@@ -8,6 +8,8 @@ const EventLogOperationsV1_1 = require("../operations/version1/EventLogOperation
 const SettingsOperationsV1_1 = require("../operations/version1/SettingsOperationsV1");
 const StatisticsOperationsV1_1 = require("../operations/version1/StatisticsOperationsV1");
 const BlobsOperationsV1_1 = require("../operations/version1/BlobsOperationsV1");
+const EmailOperationsV1_1 = require("../operations/version1/EmailOperationsV1");
+const SmsOperationsV1_1 = require("../operations/version1/SmsOperationsV1");
 class InfrastructureFacadeFactory extends pip_services_commons_node_1.Factory {
     constructor() {
         super();
@@ -17,6 +19,8 @@ class InfrastructureFacadeFactory extends pip_services_commons_node_1.Factory {
         this.registerAsType(InfrastructureFacadeFactory.SettingsOperationsV1Descriptor, SettingsOperationsV1_1.SettingsOperationsV1);
         this.registerAsType(InfrastructureFacadeFactory.StatisticsOperationsV1Descriptor, StatisticsOperationsV1_1.StatisticsOperationsV1);
         this.registerAsType(InfrastructureFacadeFactory.BlobsOperationsV1Descriptor, BlobsOperationsV1_1.BlobsOperationsV1);
+        this.registerAsType(InfrastructureFacadeFactory.EmailOperationsV1Descriptor, EmailOperationsV1_1.EmailOperationsV1);
+        this.registerAsType(InfrastructureFacadeFactory.SmsOperationsV1Descriptor, SmsOperationsV1_1.SmsOperationsV1);
     }
 }
 InfrastructureFacadeFactory.Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-infrastructure", "factory", "default", "default", "1.0");
@@ -26,5 +30,7 @@ InfrastructureFacadeFactory.EventLogOperationsV1Descriptor = new pip_services_co
 InfrastructureFacadeFactory.SettingsOperationsV1Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-infrastructure", "operations", "settings", "*", "1.0");
 InfrastructureFacadeFactory.StatisticsOperationsV1Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-infrastructure", "operations", "statistics", "*", "1.0");
 InfrastructureFacadeFactory.BlobsOperationsV1Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-infrastructure", "operations", "blobs", "*", "1.0");
+InfrastructureFacadeFactory.EmailOperationsV1Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-users", "operations", "email", "*", "1.0");
+InfrastructureFacadeFactory.SmsOperationsV1Descriptor = new pip_services_commons_node_2.Descriptor("pip-facade-users", "operations", "sms", "*", "1.0");
 exports.InfrastructureFacadeFactory = InfrastructureFacadeFactory;
 //# sourceMappingURL=InfrastructureFacadeFactory.js.map

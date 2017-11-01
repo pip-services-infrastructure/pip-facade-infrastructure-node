@@ -16,6 +16,10 @@ import { FacetsServiceFactory } from 'pip-services-facets-node';
 import { FacetsClientFactory } from 'pip-clients-facets-node';
 import { BlobsServiceFactory } from 'pip-services-blobs-node';
 import { BlobsClientFactory } from 'pip-clients-blobs-node';
+import { EmailClientFactory } from 'pip-clients-email-node';
+import { EmailServiceFactory } from 'pip-services-email-node';
+import { SmsClientFactory } from 'pip-clients-sms-node';
+import { SmsServiceFactory } from 'pip-services-sms-node';
 
 import { InfrastructureFacadeFactory } from '../../src/build/InfrastructureFacadeFactory';
 import { TestFacadeFactory } from './TestFacadeFactory';
@@ -43,6 +47,10 @@ export class TestFactory extends DefaultContainerFactory {
         this.add(new FacetsClientFactory);
         this.add(new BlobsServiceFactory);
         this.add(new BlobsClientFactory);
+        this.add(new EmailServiceFactory);
+        this.add(new EmailClientFactory);
+        this.add(new SmsServiceFactory);
+        this.add(new SmsClientFactory);
     }
 
 }

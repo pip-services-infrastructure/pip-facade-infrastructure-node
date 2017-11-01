@@ -175,7 +175,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
         let blobId = req.param("id") || req.param("blob_id");
 
         this._blobsClient.deleteBlobById(
-            null, blobId, this.sendResult(req, res)
+            null, blobId, this.sendEmptyResult(req, res)
         );
     }
 

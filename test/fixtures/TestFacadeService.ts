@@ -8,6 +8,8 @@ import { EventLogOperationsV1 } from '../../src/operations/version1/EventLogOper
 import { SettingsOperationsV1 } from '../../src/operations/version1/SettingsOperationsV1';
 import { StatisticsOperationsV1 } from '../../src/operations/version1/StatisticsOperationsV1';
 import { BlobsOperationsV1 } from '../../src/operations/version1/BlobsOperationsV1';
+import { EmailOperationsV1 } from '../../src/operations/version1/EmailOperationsV1';
+import { SmsOperationsV1 } from '../../src/operations/version1/SmsOperationsV1';
 
 export class TestFacadeService extends PartitionFacadeService {
 
@@ -20,6 +22,8 @@ export class TestFacadeService extends PartitionFacadeService {
         this._dependencyResolver.put('settings', new Descriptor("pip-facade-infrastructure", "operations", "settings", "*", "1.0"));
         this._dependencyResolver.put('statistics', new Descriptor("pip-facade-infrastructure", "operations", "statistics", "*", "1.0"));
         this._dependencyResolver.put('blobs', new Descriptor("pip-facade-infrastructure", "operations", "blobs", "*", "1.0"));
+        this._dependencyResolver.put('email', new Descriptor("pip-facade-infrastructure", "operations", "email", "*", "1.0"));
+        this._dependencyResolver.put('sms', new Descriptor("pip-facade-infrastructure", "operations", "sms", "*", "1.0"));
     }
 
     protected register(): void {
@@ -83,6 +87,16 @@ export class TestFacadeService extends PartitionFacadeService {
             this.registerRoute('get', '/avatars/:blob_id', blobs.getBlobOperation());
             this.registerRoute('put', '/avatars/:blob_id', blobs.setBlobOperation());
             this.registerRoute('del', '/avatars/:blob_id', blobs.deleteBlobOperation());
+        }
+
+        let email = this._dependencyResolver.getOneOptional<EmailOperationsV1>('email');
+        if (email) {
+            this.registerRoute('post', '/email', email.sendMessageOperation());
+        }
+
+        let sms = this._dependencyResolver.getOneOptional<SmsOperationsV1>('sms');
+        if (sms) {
+            this.registerRoute('post', '/sms', email.sendMessageOperation());
         }
     }
 

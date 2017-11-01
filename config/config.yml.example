@@ -74,6 +74,14 @@
 - descriptor: "pip-services-blobs:controller:default:default:*"
 - descriptor: "pip-services-blobs:client:direct:default:*"
 
+# Email components
+- descriptor: "pip-services-email:controller:default:default:*"
+- descriptor: "pip-services-email:client:direct:default:*"
+
+# Sms components
+- descriptor: "pip-services-sms:controller:default:default:*"
+- descriptor: "pip-services-sms:client:direct:default:*"
+
 ################ REST API Routes ##############
 
 # Main facade service
@@ -99,3 +107,5 @@
 - descriptor: "pip-facade-infrastructure:operations:settings:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:statistics:default:1.0"
 - descriptor: "pip-facade-infrastructure:operations:blobs:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:email:default:1.0"
+- descriptor: "pip-facade-infrastructure:operations:sms:default:1.0"

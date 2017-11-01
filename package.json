@@ -44,7 +44,9 @@
         "pip-clients-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-statistics-node.git",
         "pip-clients-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-eventlog-node.git",
         "pip-clients-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-facets-node.git",
-        "pip-clients-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-blobs-node.git"
+        "pip-clients-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-blobs-node.git",
+        "pip-clients-email-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-email-node.git",
+        "pip-clients-sms-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-sms-node.git"
     },
     "devDependencies": {
         "@types/node": "*",
@@ -62,6 +64,8 @@
         "pip-services-statistics-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-statistics-node.git",
         "pip-services-eventlog-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-eventlog-node.git",
         "pip-services-facets-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-facets-node.git",
-        "pip-services-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-blobs-node.git"
+        "pip-services-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-blobs-node.git",
+        "pip-services-email-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-email-node.git",
+        "pip-services-sms-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-services-sms-node.git"
     }
 }

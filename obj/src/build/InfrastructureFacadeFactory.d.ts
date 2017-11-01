@@ -8,5 +8,7 @@ export declare class InfrastructureFacadeFactory extends Factory {
     static SettingsOperationsV1Descriptor: Descriptor;
     static StatisticsOperationsV1Descriptor: Descriptor;
     static BlobsOperationsV1Descriptor: Descriptor;
+    static EmailOperationsV1Descriptor: Descriptor;
+    static SmsOperationsV1Descriptor: Descriptor;
     constructor();
 }
