@@ -19,8 +19,8 @@ export class InfrastructureFacadeFactory extends Factory {
 	public static SettingsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "settings", "*", "1.0");
 	public static StatisticsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "statistics", "*", "1.0");
 	public static BlobsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "blobs", "*", "1.0");
-	public static EmailOperationsV1Descriptor = new Descriptor("pip-facade-users", "operations", "email", "*", "1.0");
-	public static SmsOperationsV1Descriptor = new Descriptor("pip-facade-users", "operations", "sms", "*", "1.0");
+	public static EmailOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "email", "*", "1.0");
+	public static SmsOperationsV1Descriptor = new Descriptor("pip-facade-infrastructure", "operations", "sms", "*", "1.0");
 	
 	public constructor() {
 		super();
