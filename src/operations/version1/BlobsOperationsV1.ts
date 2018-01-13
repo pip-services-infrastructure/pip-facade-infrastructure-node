@@ -54,6 +54,12 @@ export class BlobsOperationsV1  extends FacadeOperations {
         }
     }
 
+    public loadBlobFromUriOperation() {
+        return (req, res) => {
+            this.loadBlobFromUri(req, res);
+        }
+    }
+    
     public updateBlobInfoOperation() {
         return (req, res) => {
             this.updateBlobInfo(req, res);
@@ -161,6 +167,30 @@ export class BlobsOperationsV1  extends FacadeOperations {
         req.pipe(form);
     }
 
+    private loadBlobFromUri(req: any, res: any): void {
+        let blobId = req.param("id") || req.param("blob_id");
+        let group = req.param('group');
+        let uri = req.param('uri');
+        let expireTime = DateTimeConverter.toNullableDateTime(req.param('expire_time'));
+        let completed = BooleanConverter.toBoolean(req.param('completed'));
+        
+        let blob: BlobInfoV1 = <BlobInfoV1>{
+            id: blobId,
+            group: group,
+            name: name,
+            content_type: null,
+            size: null,
+            create_time: new Date(),
+            expire_time: expireTime,
+            completed: completed
+        };
+
+        this._blobsClient.createBlobFromUri(null, blob, uri, (err, blob) => {
+            if (err) this.sendError(req, res, err);
+            else res.json(blob);
+        });
+    }
+    
     private updateBlobInfo(req: any, res: any): void {
         let blobId = req.param("id") || req.param("blob_id");
         let blob = req.body || {};

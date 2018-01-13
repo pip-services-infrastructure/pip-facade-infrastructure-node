@@ -37,6 +37,11 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
             this.setBlob(req, res);
         };
     }
+    loadBlobFromUriOperation() {
+        return (req, res) => {
+            this.loadBlobFromUri(req, res);
+        };
+    }
     updateBlobInfoOperation() {
         return (req, res) => {
             this.updateBlobInfo(req, res);
@@ -128,6 +133,29 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
             //res.json(blob);
         });
         req.pipe(form);
+    }
+    loadBlobFromUri(req, res) {
+        let blobId = req.param("id") || req.param("blob_id");
+        let group = req.param('group');
+        let uri = req.param('uri');
+        let expireTime = pip_services_commons_node_4.DateTimeConverter.toNullableDateTime(req.param('expire_time'));
+        let completed = pip_services_commons_node_3.BooleanConverter.toBoolean(req.param('completed'));
+        let blob = {
+            id: blobId,
+            group: group,
+            name: name,
+            content_type: null,
+            size: null,
+            create_time: new Date(),
+            expire_time: expireTime,
+            completed: completed
+        };
+        this._blobsClient.createBlobFromUri(null, blob, uri, (err, blob) => {
+            if (err)
+                this.sendError(req, res, err);
+            else
+                res.json(blob);
+        });
     }
     updateBlobInfo(req, res) {
         let blobId = req.param("id") || req.param("blob_id");
