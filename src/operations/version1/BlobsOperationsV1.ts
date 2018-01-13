@@ -170,7 +170,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
     private loadBlobFromUrl(req: any, res: any): void {
         let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
-        let url = req.param('url');
+        let url = req.param('url') || req.param('uri');
         let name = req.param('name');
         let expireTime = DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = BooleanConverter.toBoolean(req.param('completed'));

@@ -137,7 +137,7 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     loadBlobFromUrl(req, res) {
         let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
-        let url = req.param('url');
+        let url = req.param('url') || req.param('uri');
         let name = req.param('name');
         let expireTime = pip_services_commons_node_4.DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = pip_services_commons_node_3.BooleanConverter.toBoolean(req.param('completed'));
