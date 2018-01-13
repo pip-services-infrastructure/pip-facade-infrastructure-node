@@ -171,13 +171,13 @@ export class BlobsOperationsV1  extends FacadeOperations {
     private loadBlobFromUrl(req: any, res: any): void {
         let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
-        let url = req.param('url') || req.param('uri');
+        let uri = req.param('url') || req.param('uri');
         let name = req.param('name');
         let expireTime = DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = BooleanConverter.toBoolean(req.param('completed'));
         
         if (name == null || name == '') {
-            let path = new url.URL(url).pathname || '';
+            let path = new url.URL(uri).pathname || '';
             let pos = path.lastIndexOf('/');
             if (pos > 0)
                 name = path.substring(pos + 1);
@@ -194,7 +194,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
             completed: completed
         };
 
-        this._blobsClient.createBlobFromUri(null, blob, url, (err, blob) => {
+        this._blobsClient.createBlobFromUri(null, blob, uri, (err, blob) => {
             if (err) this.sendError(req, res, err);
             else res.json(blob);
         });

@@ -138,12 +138,12 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     loadBlobFromUrl(req, res) {
         let blobId = req.param("id") || req.param("blob_id");
         let group = req.param('group');
-        let url = req.param('url') || req.param('uri');
+        let uri = req.param('url') || req.param('uri');
         let name = req.param('name');
         let expireTime = pip_services_commons_node_4.DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = pip_services_commons_node_3.BooleanConverter.toBoolean(req.param('completed'));
         if (name == null || name == '') {
-            let path = new url.URL(url).pathname || '';
+            let path = new url.URL(uri).pathname || '';
             let pos = path.lastIndexOf('/');
             if (pos > 0)
                 name = path.substring(pos + 1);
@@ -158,7 +158,7 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
             expire_time: expireTime,
             completed: completed
         };
-        this._blobsClient.createBlobFromUri(null, blob, url, (err, blob) => {
+        this._blobsClient.createBlobFromUri(null, blob, uri, (err, blob) => {
             if (err)
                 this.sendError(req, res, err);
             else
