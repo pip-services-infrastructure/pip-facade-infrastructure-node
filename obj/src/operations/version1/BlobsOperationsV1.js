@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
 let busboy = require('busboy');
+let url = require('url');
 const pip_services_commons_node_1 = require("pip-services-commons-node");
 const pip_services_commons_node_2 = require("pip-services-commons-node");
 const pip_services_commons_node_3 = require("pip-services-commons-node");
@@ -142,7 +143,7 @@ class BlobsOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         let expireTime = pip_services_commons_node_4.DateTimeConverter.toNullableDateTime(req.param('expire_time'));
         let completed = pip_services_commons_node_3.BooleanConverter.toBoolean(req.param('completed'));
         if (name == null || name == '') {
-            let path = new URL(url).pathname || '';
+            let path = new url.URL(url).pathname || '';
             let pos = path.lastIndexOf('/');
             if (pos > 0)
                 name = path.substring(pos + 1);

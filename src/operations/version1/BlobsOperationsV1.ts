@@ -1,6 +1,7 @@
 let _ = require('lodash');
 let async = require('async');
 let busboy = require('busboy');
+let url = require('url');
 
 import { ConfigParams } from 'pip-services-commons-node';
 import { IReferences } from 'pip-services-commons-node';
@@ -176,7 +177,7 @@ export class BlobsOperationsV1  extends FacadeOperations {
         let completed = BooleanConverter.toBoolean(req.param('completed'));
         
         if (name == null || name == '') {
-            let path = new URL(url).pathname || '';
+            let path = new url.URL(url).pathname || '';
             let pos = path.lastIndexOf('/');
             if (pos > 0)
                 name = path.substring(pos + 1);
