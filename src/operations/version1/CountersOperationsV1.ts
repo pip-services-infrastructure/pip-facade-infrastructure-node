@@ -7,24 +7,24 @@ import { Descriptor } from 'pip-services-commons-node';
 import { DependencyResolver } from 'pip-services-commons-node';
 import { StringConverter } from 'pip-services-commons-node';
 
-import { ICountersClientV1 } from 'pip-clients-counters-node';
-import { CounterV1 } from 'pip-clients-counters-node';
+import { IPerfMonClientV1 } from 'pip-clients-perfmon-node';
+import { CounterV1 } from 'pip-clients-perfmon-node';
 
 import { FacadeOperations } from 'pip-services-facade-node';
 
 export class CountersOperationsV1  extends FacadeOperations {
-    private _countersClient: ICountersClientV1;
+    private _countersClient: IPerfMonClientV1;
 
     public constructor() {
         super();
 
-        this._dependencyResolver.put('counters', new Descriptor('pip-services-counters', 'client', '*', '*', '1.0'));
+        this._dependencyResolver.put('counters', new Descriptor('pip-services-perfmon', 'client', '*', '*', '1.0'));
     }
 
     public setReferences(references: IReferences): void {
         super.setReferences(references);
 
-        this._countersClient = this._dependencyResolver.getOneRequired<ICountersClientV1>('counters');
+        this._countersClient = this._dependencyResolver.getOneRequired<IPerfMonClientV1>('counters');
     }
 
     public getCountersOperation() {

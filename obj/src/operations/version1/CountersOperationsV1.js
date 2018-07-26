@@ -8,7 +8,7 @@ const pip_services_facade_node_1 = require("pip-services-facade-node");
 class CountersOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     constructor() {
         super();
-        this._dependencyResolver.put('counters', new pip_services_commons_node_1.Descriptor('pip-services-counters', 'client', '*', '*', '1.0'));
+        this._dependencyResolver.put('counters', new pip_services_commons_node_1.Descriptor('pip-services-perfmon', 'client', '*', '*', '1.0'));
     }
     setReferences(references) {
         super.setReferences(references);

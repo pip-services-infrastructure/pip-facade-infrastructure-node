@@ -4,8 +4,8 @@ import { DefaultContainerFactory } from 'pip-services-container-node';
 
 import { LoggingServiceFactory } from 'pip-services-logging-node';
 import { LoggingClientFactory } from 'pip-clients-logging-node';
-import { CountersServiceFactory } from 'pip-services-counters-node';
-import { CountersClientFactory } from 'pip-clients-counters-node';
+import { PerfMonServiceFactory } from 'pip-services-perfmon-node';
+import { PerfMonClientFactory } from 'pip-clients-perfmon-node';
 import { EventLogServiceFactory } from 'pip-services-eventlog-node';
 import { EventLogClientFactory } from 'pip-clients-eventlog-node';
 import { StatisticsServiceFactory } from 'pip-services-statistics-node';
@@ -35,8 +35,8 @@ export class TestFactory extends DefaultContainerFactory {
 
         this.add(new LoggingServiceFactory);
         this.add(new LoggingClientFactory);
-        this.add(new CountersServiceFactory);
-        this.add(new CountersClientFactory);
+        this.add(new PerfMonServiceFactory);
+        this.add(new PerfMonClientFactory);
         this.add(new EventLogServiceFactory);
         this.add(new EventLogClientFactory);
         this.add(new StatisticsServiceFactory);
