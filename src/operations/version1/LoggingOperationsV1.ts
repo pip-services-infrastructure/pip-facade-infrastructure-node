@@ -5,7 +5,7 @@ import { ConfigParams } from 'pip-services-commons-node';
 import { IReferences } from 'pip-services-commons-node';
 import { Descriptor } from 'pip-services-commons-node'; 
 import { DependencyResolver } from 'pip-services-commons-node';
-import { LogLevelConverter } from 'pip-services-commons-node';
+import { LogLevelConverter } from 'pip-services-components-node';
 import { StringConverter } from 'pip-services-commons-node';
 
 import { ILoggingClientV1 } from 'pip-clients-logging-node';

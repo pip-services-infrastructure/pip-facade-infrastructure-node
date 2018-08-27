@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
 const pip_services_commons_node_1 = require("pip-services-commons-node");
+const pip_services_components_node_1 = require("pip-services-components-node");
 const pip_services_commons_node_2 = require("pip-services-commons-node");
-const pip_services_commons_node_3 = require("pip-services-commons-node");
 const pip_services_facade_node_1 = require("pip-services-facade-node");
 class LoggingOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
     constructor() {
@@ -59,9 +59,9 @@ class LoggingOperationsV1 extends pip_services_facade_node_1.FacadeOperations {
         let output = "["
             + (message.correlation_id || "---")
             + ":"
-            + pip_services_commons_node_2.LogLevelConverter.toString(message.level)
+            + pip_services_components_node_1.LogLevelConverter.toString(message.level)
             + ":"
-            + pip_services_commons_node_3.StringConverter.toString(message.time)
+            + pip_services_commons_node_2.StringConverter.toString(message.time)
             + "] "
             + message.message;
         if (message.error != null) {
