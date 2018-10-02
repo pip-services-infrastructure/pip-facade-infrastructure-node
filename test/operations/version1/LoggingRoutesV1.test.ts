@@ -15,7 +15,7 @@ suite('LoggingOperationsV1', () => {
     setup((done) => {
         rest = new TestRestClient();
         references = new TestReferences();
-        references.put(new Descriptor('pip-services-facade', 'operations', 'logging', 'default', '1.0'), new LoggingOperationsV1())
+        references.put(new Descriptor('pip-facade-infrastructure', 'operations', 'logging', 'default', '1.0'), new LoggingOperationsV1())
         references.open(null, done);
     });
 

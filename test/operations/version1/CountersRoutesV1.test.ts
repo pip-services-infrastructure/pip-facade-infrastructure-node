@@ -16,7 +16,7 @@ suite('CountersOperationsV1', () => {
     setup((done) => {
         rest = new TestRestClient();
         references = new TestReferences();
-        references.put(new Descriptor('pip-services-facade', 'operations', 'counters', 'default', '1.0'), new CountersOperationsV1())
+        references.put(new Descriptor('pip-facade-infrastructure', 'operations', 'counters', 'default', '1.0'), new CountersOperationsV1())
         references.open(null, done);
     });
 

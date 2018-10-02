@@ -16,7 +16,7 @@ suite('SettingsOperationsV1', () => {
     setup((done) => {
         rest = new TestRestClient();
         references = new TestReferences();
-        references.put(new Descriptor('pip-services-facade', 'operations', 'settings', 'default', '1.0'), new SettingsOperationsV1())
+        references.put(new Descriptor('pip-facade-infrastructure', 'operations', 'settings', 'default', '1.0'), new SettingsOperationsV1())
         references.open(null, done);
     });
 

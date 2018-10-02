@@ -29,18 +29,19 @@ export class TestReferences extends ManagedReferences {
         //this.append(new Descriptor('pip-services-commons', 'logger', 'console', 'default', '*'));
         //this.append(new Descriptor('pip-services-commons', 'counters', 'log', 'default', '*'));
         this.append(new Descriptor('pip-services-logging', 'logger', 'direct', 'default', '*'));
-        this.append(new Descriptor('pip-services-counters', 'counters', 'direct', 'default', '*'));
+        this.append(new Descriptor('pip-services-perfmon', 'counters', 'direct', 'default', '*'));
 
-        this.append(new Descriptor('pip-services-facade', 'service', 'main', 'default', '*'));
+        this.append(new Descriptor('pip-services', 'facade-service', 'default', 'default', '*'));
     }
 
     private appendMicroservices(): void {
-        this.append(new Descriptor('pip-services-logging', 'persistence', 'memory', 'default', '*'));
+        this.append(new Descriptor('pip-services-logging', 'persistence-messages', 'memory', 'default', '*'));
+        this.append(new Descriptor('pip-services-logging', 'persistence-errors', 'memory', 'default', '*'));
         this.append(new Descriptor('pip-services-logging', 'controller', 'default', 'default', '*'));
         this.append(new Descriptor('pip-services-logging', 'client', 'direct', 'default', '*'));
-        this.append(new Descriptor('pip-services-counters', 'persistence', 'memory', 'default', '*'));
-        this.append(new Descriptor('pip-services-counters', 'controller', 'default', 'default', '*'));
-        this.append(new Descriptor('pip-services-counters', 'client', 'direct', 'default', '*'));
+        this.append(new Descriptor('pip-services-perfmon', 'persistence', 'memory', 'default', '*'));
+        this.append(new Descriptor('pip-services-perfmon', 'controller', 'default', 'default', '*'));
+        this.append(new Descriptor('pip-services-perfmon', 'client', 'direct', 'default', '*'));
         this.append(new Descriptor('pip-services-eventlog', 'persistence', 'memory', 'default', '*'));
         this.append(new Descriptor('pip-services-eventlog', 'controller', 'default', 'default', '*'));
         this.append(new Descriptor('pip-services-eventlog', 'client', 'direct', 'default', '*'));
@@ -71,7 +72,7 @@ export class TestReferences extends ManagedReferences {
     private configureService(): void {
         // Configure Facade service
         let service = this.getOneRequired<MainFacadeService>(
-            new Descriptor('pip-services-facade', 'service', 'main', 'default', '*')
+            new Descriptor('pip-services', 'facade-service', 'default', 'default', '*')
         );
         service.configure(ConfigParams.fromTuples(
             'root_path', '/api/1.0',

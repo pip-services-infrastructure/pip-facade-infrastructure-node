@@ -17,7 +17,7 @@ suite('StatisticsOperationsV1', () => {
     setup((done) => {
         rest = new TestRestClient();
         references = new TestReferences();
-        references.put(new Descriptor('pip-services-facade', 'operations', 'statistics', 'default', '1.0'), new StatisticsOperationsV1())
+        references.put(new Descriptor('pip-facade-infrastructure', 'operations', 'statistics', 'default', '1.0'), new StatisticsOperationsV1())
         statisticsClient = references.getOneRequired<IStatisticsClientV1>(
             new Descriptor('pip-services-statistics', 'client', '*', '*', '*')
         );

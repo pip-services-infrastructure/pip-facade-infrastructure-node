@@ -15,7 +15,7 @@ suite('EventLogOperationsV1', () => {
     setup((done) => {
         rest = new TestRestClient();
         references = new TestReferences();
-        references.put(new Descriptor('pip-services-facade', 'operations', 'eventlog', 'default', '1.0'), new EventLogOperationsV1())
+        references.put(new Descriptor('pip-facade-infrastructure', 'operations', 'eventlog', 'default', '1.0'), new EventLogOperationsV1())
         references.open(null, done);
     });
 
