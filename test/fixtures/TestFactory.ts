@@ -1,6 +1,6 @@
-import { CompositeFactory } from 'pip-services-components-node';
-import { FacadeFactory } from 'pip-services-facade-node';
-import { DefaultContainerFactory } from 'pip-services-container-node';
+import { CompositeFactory } from 'pip-services3-components-node';
+import { FacadeFactory } from 'pip-services3-facade-node';
+import { DefaultContainerFactory } from 'pip-services3-container-node';
 
 import { LoggingServiceFactory } from 'pip-services-logging-node';
 import { LoggingClientFactory } from 'pip-clients-logging-node';

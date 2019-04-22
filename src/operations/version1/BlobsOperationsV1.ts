@@ -3,18 +3,18 @@ let async = require('async');
 let busboy = require('busboy');
 let url = require('url');
 
-import { ConfigParams } from 'pip-services-commons-node';
-import { IReferences } from 'pip-services-commons-node';
-import { Descriptor } from 'pip-services-commons-node'; 
-import { DependencyResolver } from 'pip-services-commons-node';
-import { NotFoundException } from 'pip-services-commons-node';
-import { BooleanConverter } from 'pip-services-commons-node';
-import { DateTimeConverter } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node'; 
+import { DependencyResolver } from 'pip-services3-commons-node';
+import { NotFoundException } from 'pip-services3-commons-node';
+import { BooleanConverter } from 'pip-services3-commons-node';
+import { DateTimeConverter } from 'pip-services3-commons-node';
 
 import { IBlobsClientV1 } from 'pip-clients-blobs-node';
 import { BlobInfoV1 } from 'pip-clients-blobs-node';
 
-import { FacadeOperations } from 'pip-services-facade-node';
+import { FacadeOperations } from 'pip-services3-facade-node';
 
 export class BlobsOperationsV1  extends FacadeOperations {
     private _blobsClient: IBlobsClientV1;

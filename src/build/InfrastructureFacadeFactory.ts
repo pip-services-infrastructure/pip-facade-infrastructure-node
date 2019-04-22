@@ -1,5 +1,5 @@
-import { Factory } from 'pip-services-components-node';
-import { Descriptor } from 'pip-services-commons-node';
+import { Factory } from 'pip-services3-components-node';
+import { Descriptor } from 'pip-services3-commons-node';
 
 import { LoggingOperationsV1 } from '../operations/version1/LoggingOperationsV1';
 import { CountersOperationsV1 } from '../operations/version1/CountersOperationsV1';

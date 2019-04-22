@@ -1,16 +1,16 @@
 let _ = require('lodash');
 let async = require('async');
 
-import { ConfigParams } from 'pip-services-commons-node';
-import { IReferences } from 'pip-services-commons-node';
-import { Descriptor } from 'pip-services-commons-node'; 
-import { DependencyResolver } from 'pip-services-commons-node';
-import { NotFoundException } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node'; 
+import { DependencyResolver } from 'pip-services3-commons-node';
+import { NotFoundException } from 'pip-services3-commons-node';
 
 import { SmsRecipientV1 } from 'pip-clients-sms-node';
 import { ISmsClientV1 } from 'pip-clients-sms-node';
 
-import { FacadeOperations } from 'pip-services-facade-node';
+import { FacadeOperations } from 'pip-services3-facade-node';
 
 export class SmsOperationsV1  extends FacadeOperations {
     private _smsClient: ISmsClientV1;

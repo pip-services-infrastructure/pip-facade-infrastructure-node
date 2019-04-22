@@ -1,6 +1,6 @@
-import { Descriptor } from 'pip-services-commons-node';
-import { PartitionFacadeService } from 'pip-services-facade-node';
-import { AboutOperations } from 'pip-services-facade-node';
+import { Descriptor } from 'pip-services3-commons-node';
+import { PartitionFacadeService } from 'pip-services3-facade-node';
+import { AboutOperations } from 'pip-services3-facade-node';
 
 import { LoggingOperationsV1 } from '../../src/operations/version1/LoggingOperationsV1';
 import { CountersOperationsV1 } from '../../src/operations/version1/CountersOperationsV1';

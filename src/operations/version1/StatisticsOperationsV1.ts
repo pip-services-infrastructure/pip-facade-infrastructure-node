@@ -1,16 +1,16 @@
 let _ = require('lodash');
 let async = require('async');
 
-import { ConfigParams } from 'pip-services-commons-node';
-import { IReferences } from 'pip-services-commons-node';
-import { Descriptor } from 'pip-services-commons-node'; 
-import { DependencyResolver } from 'pip-services-commons-node';
-import { IntegerConverter } from 'pip-services-commons-node';
-import { DateTimeConverter } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
+import { IReferences } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node'; 
+import { DependencyResolver } from 'pip-services3-commons-node';
+import { IntegerConverter } from 'pip-services3-commons-node';
+import { DateTimeConverter } from 'pip-services3-commons-node';
 
 import { IStatisticsClientV1 } from 'pip-clients-statistics-node';
 
-import { FacadeOperations } from 'pip-services-facade-node';
+import { FacadeOperations } from 'pip-services3-facade-node';
 
 export class StatisticsOperationsV1  extends FacadeOperations {
     private _statisticsClient: IStatisticsClientV1;
