@@ -10,10 +10,10 @@ export declare class StatisticsOperationsV1 extends FacadeOperations {
     readCountersByGroupOperation(): (req: any, res: any) => void;
     readCountersOperation(): (req: any, res: any) => void;
     incrementCounterOperation(): (req: any, res: any) => void;
-    private getGroups;
-    private getCounters;
-    private readCounter;
-    private readCountersByGroup;
-    private readCounters;
-    private incrementCounter;
+    private getGroups(req, res);
+    private getCounters(req, res);
+    private readCounter(req, res);
+    private readCountersByGroup(req, res);
+    private readCounters(req, res);
+    private incrementCounter(req, res);
 }

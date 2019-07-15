@@ -6,6 +6,6 @@ export declare class EventLogOperationsV1 extends FacadeOperations {
     setReferences(references: IReferences): void;
     getEventsOperation(): (req: any, res: any) => void;
     logEventOperation(): (req: any, res: any) => void;
-    private getEvents;
-    private logEvent;
+    private getEvents(req, res);
+    private logEvent(req, res);
 }

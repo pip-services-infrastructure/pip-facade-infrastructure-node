@@ -5,5 +5,5 @@ export declare class EmailOperationsV1 extends FacadeOperations {
     constructor();
     setReferences(references: IReferences): void;
     sendMessageOperation(): (req: any, res: any) => void;
-    private sendMessage;
+    private sendMessage(req, res);
 }

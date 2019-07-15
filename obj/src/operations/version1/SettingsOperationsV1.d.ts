@@ -13,13 +13,13 @@ export declare class SettingsOperationsV1 extends FacadeOperations {
     incrementParameterOperation(): (req: any, res: any) => void;
     modifySectionOperation(): (req: any, res: any) => void;
     clearSectionOperation(): (req: any, res: any) => void;
-    private getSectionIds;
-    private getSections;
-    private getSection;
-    private setSection;
-    private getParameter;
-    private setParameter;
-    private incrementParameter;
-    private modifySection;
-    private clearSection;
+    private getSectionIds(req, res);
+    private getSections(req, res);
+    private getSection(req, res);
+    private setSection(req, res);
+    private getParameter(req, res);
+    private setParameter(req, res);
+    private incrementParameter(req, res);
+    private modifySection(req, res);
+    private clearSection(req, res);
 }

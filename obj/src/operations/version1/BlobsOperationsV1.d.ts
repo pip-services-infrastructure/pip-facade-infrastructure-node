@@ -11,11 +11,11 @@ export declare class BlobsOperationsV1 extends FacadeOperations {
     loadBlobFromUrlOperation(): (req: any, res: any) => void;
     updateBlobInfoOperation(): (req: any, res: any) => void;
     deleteBlobOperation(): (req: any, res: any) => void;
-    private getBlobs;
-    private getBlobInfo;
-    private getBlob;
-    private setBlob;
-    private loadBlobFromUrl;
-    private updateBlobInfo;
-    private deleteBlob;
+    private getBlobs(req, res);
+    private getBlobInfo(req, res);
+    private getBlob(req, res);
+    private setBlob(req, res);
+    private loadBlobFromUrl(req, res);
+    private updateBlobInfo(req, res);
+    private deleteBlob(req, res);
 }

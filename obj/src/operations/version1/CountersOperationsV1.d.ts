@@ -8,10 +8,10 @@ export declare class CountersOperationsV1 extends FacadeOperations {
     getCountersAsTextOperation(): (req: any, res: any) => void;
     writeCounterOperation(): (req: any, res: any) => void;
     clearCountersOperation(): (req: any, res: any) => void;
-    private getCounters;
-    private counterToText;
-    private countersToText;
-    private getCountersAsText;
-    private writeCounter;
-    private clearCounters;
+    private getCounters(req, res);
+    private counterToText(counter);
+    private countersToText(counters);
+    private getCountersAsText(req, res);
+    private writeCounter(req, res);
+    private clearCounters(req, res);
 }
